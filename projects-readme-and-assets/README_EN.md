@@ -80,6 +80,11 @@ Original Project Introduction (English): [Open: English](https://github.com/Bryc
 6. **External Speech Input Interface** - Supports third-party applications invoking "ShuoDianSha" for speech input via the SpeechRecognizer interface.
 
 
+### Sync:
+
+1. **Multi-Device Clipboard Sync** - Use SyncClipboard to sync your clipboard content across any device.
+
+
 ### User Experience:
 
 1. **Multiple Interface Styles** - Built-in support for Material-3 and MiuiX styles; switch between them at will.
