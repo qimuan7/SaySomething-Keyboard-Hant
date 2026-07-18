@@ -14,11 +14,11 @@
 
 繁體中文 : 往下滑 >.>)
 
-简体中文 : [打开](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/README_ZH-Hans.md)
+简体中文 : [打开](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/README_ZH-Hans.md)
 
-English : [Open](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/README_EN.md)
+English : [Open](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/README_EN.md)
 
-日本語 : [開ける](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/README_JA.md)
+日本語 : [開ける](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/README_JA.md)
 
 ---
 
@@ -59,14 +59,9 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 
 ### 界面展示(平板端):
 
-![設定1](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-1.png)
+- **界面展示(中文):**  https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/assets/ui-1-zh.mp4
 
-![設定2](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-2.png)
-
-![設定3](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-3.png)
-
-![輸入佈局](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-4.png)
-
+- **輸入展示(三語):**  https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/assets/type-en-md-ct.mp4
 ---
 
 ## 使用:
