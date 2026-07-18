@@ -75,7 +75,7 @@
 
 ### インストールと有効化：
 
-1. [Releases](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases) ページから APK ファイル「Spime_**BR1**_vXXX(XXX).apk」をダウンロードします。
+1. [Releases-Apps & SourceCodes Download](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases/tag/2.apps%26source-codes) ページから APK ファイル「Spime_**BR1**_vXXX(XXX).apk」をダウンロードします。
 
 2. Android デバイスにインストールします。
 
