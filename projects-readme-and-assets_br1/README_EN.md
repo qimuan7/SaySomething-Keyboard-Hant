@@ -89,7 +89,7 @@ Original Project's Introduction (English): [Open: English](https://github.com/Br
 
 2. Select your preferred speech recognition service provider, choose the model size, and click One-Click Download.
 
-- To download manually, go to Settings - Speech Recognition Settings - and view the configuration tutorial. This will bring up the embedded offline configuration guide page, where you can find the model download link, or download and save it in [Release-ModelDownload]().
+- To download manually, go to Settings - Speech Recognition Settings - and view the configuration tutorial. This will bring up the embedded offline configuration guide page, where you can find the model download link, or download and save it in [Release-Models Download](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases/tag/1.model).
 
 ### Usage~
 
