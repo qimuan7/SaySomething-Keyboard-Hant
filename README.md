@@ -127,7 +127,7 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 
 ### 安裝步驟:
   
-1. 從 [Releases](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases) 頁面下載最新版本 APK
+1. 從 [Releases](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases) 頁面下載 "Spime_BR2_vXXX(XXX).apk" 版本
   
 2. 安裝到 Android 設備
   
