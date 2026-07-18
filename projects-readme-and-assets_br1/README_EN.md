@@ -77,7 +77,7 @@ Original Project's Introduction (English): [Open: English](https://github.com/Br
 
 ### Installation & Activation:
 
-1. From Download the APK "Spime_**BR1**_vXXX(XXX).apk" from the [Releases](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases) page.
+1. From Download the APK "Spime_**BR1**_vXXX(XXX).apk" from the [Releases-Apps & SourceCodes Download](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases/tag/2.apps%26source-codes) page.
 
 2. Install it on your Android device.
 
