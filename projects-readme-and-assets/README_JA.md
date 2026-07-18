@@ -127,7 +127,7 @@ AIオンラインサービスまたはローカルモデルに基づいたスマ
 
 ### インストール手順：
 
-1. [リリース](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases) ページから最新バージョンのAPKをダウンロードします。
+1. [リリース](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases)ページから「Spime_BR2_vXXX(XXX).apk」バージョンをダウンロードしてください。
 
 2. Android端末にインストールします。
 
