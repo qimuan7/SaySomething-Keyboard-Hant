@@ -12,6 +12,10 @@
 
 ---
 
+**如果你想要更簡潔的版本, 請查看主分支: [打開](https://github.com/qimuan7/SaySomething-Keyboard-Hant)**
+
+---
+
 ## Multi Languages Introduction :
 
 繁體中文 : 往下滑就有 >.>)
