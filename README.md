@@ -76,6 +76,11 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 5. **小企鵝/同文輸入法連動** - 支援透過修改版小企鵝/同文輸入法直接呼叫「說點啥」的語音辨識能力
 
 6. **外部語音輸入介面** - 支援第三方應用程式透過 SpeechRecognizer 介面呼叫「說點啥」進行語音輸入
+
+
+### 同步:
+
+1. **多設備同步剪貼簿** - 使用 SyncClipboard 在任何設備上同步你的剪貼簿內容
    
 
 ### 使用者界面:
