@@ -14,11 +14,11 @@
 
 繁体中文 : 往下滑 >.>)
 
-简体中文 : [打开](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/README_ZH-Hans.md)
+简体中文 : [打开](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/README_ZH-Hans.md)
 
-English : [Open](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/README_EN.md)
+English : [Open](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/README_EN.md)
 
-日本语 : [开ける](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/README_JA.md)
+日本语 : [开ける](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/README_JA.md)
 
 ---
 
@@ -30,13 +30,16 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 
 ---
 
+
 ## 功能:
+
 
 ### 语音辨识:
 
 - 可识别语言涵盖 普通话, 粤语, 地方语言, 英文, 日文, 及更多
 
 - 完全离线的语音识别模型, 从 100MB 到 800MB, 快速, 准确, 稳定, 保护私隐
+
 
 ### 输入与界面:
 
@@ -50,18 +53,15 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 
 - 极简初始设定
 
+
 ### 更多功能: 我只当做普通语音输入法用, 部分功能可以等你去发现~
+
 
 ### 界面展示(平板端):
 
-![设定1](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-1.png)
+- **界面展示(中文):**  https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/assets/ui-1-zh.mp4
 
-![设定2](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-2.png)
-
-![设定3](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-3.png)
-
-![输入布局](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-4.png)
-
+- **输入展示(三语):**  https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/assets/type-en-md-ct.mp4
 ---
 
 ## 使用:
@@ -91,6 +91,7 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 1. 打开设定
 
 2. 选择喜欢的语音辨识服务商, 选择模型大小并点击一键下载
+
 - 若想要手动下载, 前往设定-语音辨识设定-去查看配置教学, 即可唤起内嵌的离线配置指导页面, 你可以在其中找到模型下载连结, 或在 [Release-ModelDownload]() 中下载保存
 
 ### 使用~
@@ -156,6 +157,7 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 所以遇到问题是很正常的~~ 尽管我也不知道怎么修 (对手指
 
 ***请不要在没有确定问题是哪来的以前, 把使用这个项目遇到的 bug 丢到原项目 issus, 这会对彼此造成巨大的困扰 !!! 非常感谢 !!!***
+
 
 ## 所属声明:
 
