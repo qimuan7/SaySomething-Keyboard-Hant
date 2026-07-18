@@ -14,13 +14,13 @@
 
 ## 多言語対応について:
 
-繁体字中国語: 下へスクロール >.>)
+繁体字中国語: README.md
 
 簡体字中国語: [開く](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/README_ZH-Hans.md)
 
 英語: [開く](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/README_EN.md)
 
-日本語: [開く](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/README_JA.md)
+日本語: あなたは読んでいます ~
 
 ---
 
