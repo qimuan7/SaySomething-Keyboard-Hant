@@ -111,6 +111,7 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 
 ![輸入佈局](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-4.png)
 
+---
 
 ## 二改內容:
 
