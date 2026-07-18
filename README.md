@@ -38,6 +38,8 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 
 ---
 
+## 功能:
+
 ### 語音辨識:
 
 1. **長按錄音** - 簡單直覺的錄音操作
@@ -110,6 +112,49 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 ![設定3](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-3.png)
 
 ![輸入佈局](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-4.png)
+
+---
+
+## 使用:
+
+### 系統需求:
+
+1. Android 8.0 (API 26) 或更高版本
+  
+2. 麥克風權限（語音辨識）
+  
+3. 懸浮窗權限（可選，用於懸浮球功能）
+  
+4. 無障礙權限（可選，用於自動插入文字）
+  
+
+### 安裝步驟:
+  
+1. 從 [Releases](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases) 頁面下載最新版本 APK
+  
+2. 安裝到 Android 設備
+  
+
+### 啟用輸入法:
+
+> 設定 → 系統 → 語言與輸入法 → 虛擬鍵盤 → 管理鍵盤 → 啟用"「說點啥」"
+
+### 配置 ASR 服務
+
+1. 打開說點啥設置
+  
+2. 選擇 ASR 供應商（建議：火山引擎）
+  
+3. 填入 API 金鑰
+  
+
+### 開始使用~
+
+1. 在任意輸入框切換說點啥輸入法
+  
+2. 長按麥克風按鈕然後說點啥 (說啥我也不知道xd)
+
+
 
 ---
 
