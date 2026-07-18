@@ -80,7 +80,7 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
   
 ### 安裝 & 啟用:
   
-1. 從 [Releases](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases) 頁面下載 "Spime_**BR1**_vXXX(XXX).apk" 版本 APK
+1. 從 [Releases-Apps & SourceCodes Download](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases/tag/2.apps%26source-codes) 頁面下載 "Spime_**BR1**_vXXX(XXX).apk" 版本 APK
   
 2. 安裝到 Android 設備
 
