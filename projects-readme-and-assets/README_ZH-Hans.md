@@ -9,26 +9,30 @@
 添加繁体中文输出, 可以适用需要输出繁体中文的用户 (Ou<)
 
 
+---
+
+**"2"分支版本相比原版, 只添加了繁体输出, 其他功能跟原版完全一致, 如果没有特殊需求建议用 [原版](https://github.com/BryceWG/BiBi-Keyboard), 或者两个都装上试试**
+
+**如果你想要更简洁的版本, 请查看主分支: [打开](https://github.com/qimuan7/SaySomething-Keyboard-Hant)**
 
 * * *
 
 ## 多语介绍 :
 
-繁体中文 : README.md
+繁体 : README.md
 
-简体中文 : 你正在看~~
+简体 : 你正在看~~
 
-English : 
+英文 : [Open](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/README_EN.md)
 
-日本语 : 
-
+日文 : [開ける](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/README_JA.md)
 
 
 ### 原项目介绍 :
 
-原项目介绍 (简体中文) :
+原项目介绍 (简体中文) :[打开: 简体中文](https://github.com/BryceWG/BiBi-Keyboard/blob/main/README.md)
 
-原项目介绍 (英文) :
+原项目介绍 (英文) :[Open: English](https://github.com/BryceWG/BiBi-Keyboard/blob/main/README_EN.md)
 
 
 
@@ -99,12 +103,59 @@ English :
 ### 界面展示(平板端):
 
 
+![設定1](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-1.png)
 
+![設定2](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-2.png)
 
+![設定3](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-3.png)
 
+![輸入佈局](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-4.png)
 
 
 * * *
+
+## 使用:
+
+### 系統需求:
+
+1. Android 8.0 (API 26) 或更高版本
+  
+2. 麥克風權限（語音辨識）
+  
+3. 懸浮窗權限（可選，用於懸浮球功能）
+  
+4. 無障礙權限（可選，用於自動插入文字）
+  
+
+### 安裝步驟:
+  
+1. 從 [Releases](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases) 頁面下載最新版本 APK
+  
+2. 安裝到 Android 設備
+  
+
+### 啟用輸入法:
+
+> 設定 → 系統 → 語言與輸入法 → 虛擬鍵盤 → 管理鍵盤 → 啟用"「說點啥」"
+
+### 配置 ASR 服務
+
+1. 打開說點啥設置
+  
+2. 選擇 ASR 供應商（建議：火山引擎）
+  
+3. 填入 API 金鑰
+  
+
+### 開始使用~
+
+1. 在任意輸入框切換說點啥輸入法
+  
+2. 長按麥克風按鈕然後說點啥 (說啥我也不知道xd)
+
+
+
+---
 
 ## 二改内容:
 
