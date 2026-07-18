@@ -20,9 +20,9 @@ AIオンラインサービスまたはローカルモデルに基づいたスマ
 
 繁体字中国語：README.md
 
-簡体字中国語：
+簡体字中国語：[打开](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/README_ZH-Hans.md)
 
-英語：
+英語：[Open](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/README_EN.md)
 
 日本語：現在、このページをご覧いただいています！
 
