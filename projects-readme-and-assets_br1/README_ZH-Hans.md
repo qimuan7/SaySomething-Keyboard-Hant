@@ -14,7 +14,7 @@
 
 繁体中文 : README.md
 
-简体中文 : 你正在閱讀 (ouo)
+简体中文 : 你正在阅读 (ouo)
 
 English : [Open](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/README_EN.md)
 
