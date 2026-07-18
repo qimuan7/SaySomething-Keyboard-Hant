@@ -6,8 +6,6 @@ Makes your voice input experience more natural and efficient.
 
 Now supports Traditional Chinese output for users who need it.
 
-
-
 English can also using smoothly  (〃￣︶￣)人(￣︶￣〃)
 
 ---
@@ -28,7 +26,7 @@ English: U R READING NOWWWW ~
 
 Japanese: [開ける](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/README_JA.md)
 
-
+---
 
 ### Original Project Introduction:
 
@@ -36,8 +34,10 @@ Original Project Introduction (Simplified Chinese): [打开: 简体中文](https
 
 Original Project Introduction (English): [Open: English](https://github.com/BryceWG/BiBi-Keyboard/blob/main/README_EN.md)
 
-
 * * *
+
+## Functions:
+
 
 ### Voice Recognition:
 
@@ -51,6 +51,7 @@ Original Project Introduction (English): [Open: English](https://github.com/Bryc
 
 5. **AI Text Post-processing** - Uses LLMs to correct and refine recognition results.
 
+
 ### Floating Button Input:
 
 1. **Cross-IME Compatibility** - Enables voice input with any keyboard app.
@@ -62,6 +63,7 @@ Original Project Introduction (English): [Open: English](https://github.com/Bryc
 4. **Compatibility Mode** - Supports special apps like Telegram and Douyin.
 
 5. **Visual Feedback** - Recording and processing status visible at a glance.
+
 
 ### Smart Input:
 
@@ -76,6 +78,7 @@ Original Project Introduction (English): [Open: English](https://github.com/Bryc
 5. **Integration with Little Penguin / Tongwen Input Method** - Supports directly invoking the "ShuoDianSha" (Say Something) speech recognition capability via modified versions of Little Penguin (XiaoQiE) or Tongwen IME.
 
 6. **External Speech Input Interface** - Supports third-party applications invoking "ShuoDianSha" for speech input via the SpeechRecognizer interface.
+
 
 ### User Experience:
 
@@ -93,8 +96,8 @@ Original Project Introduction (English): [Open: English](https://github.com/Bryc
 
 7. ~~Automatic Update Check - Automatically checks for new versions upon daily app launch~~ **(Due to changes in the package name and version number, it can coexist with the original version, but the in-app update function is disabled.)**
 
-### Interface Preview (On Tablet):
 
+### Interface Preview (On Tablet):
 
 ![設定1](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/en-1.png)
 
@@ -108,6 +111,7 @@ Original Project Introduction (English): [Open: English](https://github.com/Bryc
 
 ## Usage:
 
+
 ### System Requirements:
 
 1. Android 8.0 (API 26) or higher
@@ -118,15 +122,18 @@ Original Project Introduction (English): [Open: English](https://github.com/Bryc
 
 4. Accessibility permission (optional, for automatic text insertion)
 
+
 ### Installation Steps:
 
 1. Download the latest version APK from the [Releases](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases) page
 
 2. Install it on your Android device
 
+
 ### Enable Input Method:
 
 > Settings → System → Language & Input → Virtual Keyboard → Manage Keyboards → Enable "SaySomething"
+
 
 ### Configure ASR Service
 
@@ -135,6 +142,7 @@ Original Project Introduction (English): [Open: English](https://github.com/Bryc
 2. Select an ASR provider (recommended: Volcano Engine)
 
 3. Enter the API key
+
 
 ### Start using it~
 
@@ -196,8 +204,8 @@ I also believe the original project's Pro version (which is likely AI-driven) pr
 
 If you like this input method, please show some support and encouragement to the original project (〃￣︶￣)人(￣︶￣〃). It’s honestly sad that such a great project only has 706 stars.
 
-
-
 * * *
 
 Wish u have a nice day ouo. ---qimuan7
+
+---
