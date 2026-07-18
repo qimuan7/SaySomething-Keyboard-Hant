@@ -14,11 +14,11 @@ Removing online functionality, giving you a reliable voice input method even wit
 
 ## Multi Languages ​​Introduction:
 
-Traditional Chinese: Scroll down >.>)
+Traditional Chinese: README.md
 
 Simplified Chinese: [Open](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/README_ZH-Hans.md)
 
-English: [Open](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/README_EN.md)
+English: u are now reading ~
 
 Japanese: [Open](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/README_JA.md)
 
