@@ -12,6 +12,8 @@
 
 ---
 
+**"2"分支版本相比原版, 只添加了繁體輸出, 其他功能跟原版完全一致, 如果沒有特殊需求建議用 [原版](https://github.com/BryceWG/BiBi-Keyboard), 或者兩個一齊裝上試試**
+
 **如果你想要更簡潔的版本, 請查看主分支: [打開](https://github.com/qimuan7/SaySomething-Keyboard-Hant)**
 
 ---
