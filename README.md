@@ -1,14 +1,10 @@
 # 說點啥 - 語音輸入法
 
-
-
 基於 AI 在線服務或本地模型的智慧語音輸入法
 
 讓你的語音輸入體驗更自然, 更高效
 
 添加繁體中文輸出, 可以適用需要輸出繁體中文的用戶 (Ou<)
-
-
 
 ---
 
@@ -28,7 +24,7 @@ English : [Open](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/pr
 
 日本語 : [開ける](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/README_JA.md)
 
-
+---
 
 ### Original Project's Introduction:
 
@@ -36,11 +32,10 @@ English : [Open](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/pr
 
 Original Project's Introduction (English) : [Open: English](https://github.com/BryceWG/BiBi-Keyboard/blob/main/README_EN.md)
 
-
-
 ---
 
 ## 功能:
+
 
 ### 語音辨識:
 
@@ -53,7 +48,6 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 4. **本地 ASR 模型** - 支援離線語音識別，無需網絡，保護隱私
 
 5. **AI 文字後處理** - LLM 後處理修正辨識結果
-   
    
 
 ### 懸浮球輸入:
@@ -69,7 +63,6 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 5. **視覺回饋** - 錄音/處理狀態一目了然 
    
    
-
 ### 智慧輸入:
 
 1. **AI 編輯面板** - 專用編輯介面，語音指令編輯文字
@@ -84,9 +77,8 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 
 6. **外部語音輸入介面** - 支援第三方應用程式透過 SpeechRecognizer 介面呼叫「說點啥」進行語音輸入
    
-   
 
-### 使用者體驗:
+### 使用者界面:
 
 1. **多種界面風格** - 內建 Material-3 以及 MiuiX 兩種不同風格, 隨心切換
 
@@ -102,10 +94,8 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 
 7. ~~自動更新檢查 - 每日開啟軟體自動檢查新版本~~   **(由於更改包名和版本號, 所以可以與原版共存, 但應用更新功能報廢)**
    
-   
 
 ### 界面展示(平板端):
-
 
 ![設定1](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-1.png)
 
@@ -156,12 +146,9 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
   
 2. 長按麥克風按鈕然後說點啥 (說啥我也不知道xd)
 
-
-
 ---
 
 ## 二改內容:
-
 
 
 #### 你能直接看到的:
@@ -169,7 +156,6 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 1. 在 ***設定 > 輸入設定***  (去除閾值的滑桿下面) 新增 ***繁體中文輸出***  和  ***簡體到繁體中文轉換標準*** (打開選項才能看見~)
 
 2. 在 ***設定 > 關於 > 應用程式***  中的 ***名稱, 版本號, 包名*** 做了修改
-   
    
 
 #### 你在修改時才能看到的:
@@ -186,8 +172,6 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 
 現在兩者可以同時安裝在同一設備上
 
-
-
 ---
 
 ## 警告:
@@ -198,10 +182,7 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 
 所以遇到問題是很正常的~~ 儘管我也不知道怎麼修 (對手指
 
-
-
 ***請不要在沒有確定問題是哪來的以前, 把使用這個項目遇到的 bug 丟到原項目 issus, 這會對彼此造成巨大的困擾 !!! 非常感謝 !!!***
-
 
 
 ## 所屬聲明:
@@ -210,11 +191,7 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 
 **使用 github.com/qichuan/android-opencc 的 OpenCC 庫 (S2T, S2HK, S2TWP) 實現繁體中文輸出**
 
-
-
 講實話我沒有用過原項目的Pro版, 也不知道其中的"繁體中文輸出"如何實現
-
-
 
 我的目標不是取代或者破譯原項目的Pro版本 (也做不到),
 
@@ -224,14 +201,10 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 
 我也相信原項目的Pro版 (或許) 基於AI輸出, 會有比我用 OpenCC 強行转换有更好的輸出效果
 
-
-
 如果你喜歡這個輸入法, 請多多給予原項目一點支援和鼓勵吧 (〃￣︶￣)人(￣︶￣〃) 這麼好的項目只有 706 star 真的很難過好嘛
-
-
 
 ---
 
 願你今日快樂ouo. --qimuan7
 
-
+---
