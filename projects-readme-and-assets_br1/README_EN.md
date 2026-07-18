@@ -1,10 +1,12 @@
-# Voice Input - An Obsessive Offline Voice Input Experience
+# Speech Input - An Obsessive Offline Voice Input Experience
 
 A voice input method using an offline AI model
 
 Based on the [Saysomething](https://github.com/BryceWG/BiBi-Keyboard) input method
 
 Using [OpenCC](https://github.com/qichuan/android-opencc) to provide Traditional Chinese input
+
+Thanks for the multi models, u can use it in English smoothly too~ (～￣▽￣)～
 
 Removing online functionality, giving you a reliable voice input method even without internet access
 
@@ -14,11 +16,11 @@ Removing online functionality, giving you a reliable voice input method even wit
 
 Traditional Chinese: Scroll down >.>)
 
-Simplified Chinese: [Open](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/README_ZH-Hans.md)
+Simplified Chinese: [Open](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/README_ZH-Hans.md)
 
-English: [Open](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/README_EN.md)
+English: [Open](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/README_EN.md)
 
-Japanese: [Open](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/README_JA.md)
+Japanese: [Open](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/README_JA.md)
 
 ---
 
@@ -30,7 +32,7 @@ Original Project's Introduction (English): [Open: English](https://github.com/Br
 
 ---
 
-## Functionality:
+## Features:
 
 ### Voice Recognition:
 
@@ -54,16 +56,11 @@ Original Project's Introduction (English): [Open: English](https://github.com/Br
 
 ### Interface Showcase (Tablet):
 
-![Setting 1](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-1.png)
+- **Interface Showcase (English):** https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/assets/ui-2-en.mp4
 
-![Setting 2](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-2.png)
-
-![Setting 3](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-3.png)
-
-![Input Layout](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-4.png)
+- **Input Display (Trilingual):** https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/1/projects-readme-and-assets_br1/assets/type-en-md-ct.mp4
 
 ---
-
 ## Usage:
 
 ### System:
@@ -80,11 +77,11 @@ Original Project's Introduction (English): [Open: English](https://github.com/Br
 
 ### Installation & Activation:
 
-1. Download the "Spime_**BR1**_vXXX(XXX).apk" version APK from the [Releases](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases) page.
+1. From Download the APK "Spime_**BR1**_vXXX(XXX).apk" from the [Releases](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases) page.
 
 2. Install it on your Android device.
 
-3. Obtain permissions based on the initial screen: Settings → System → Language & Input → Virtual Keyboard → Manage Keyboards → Enable "Voice Input"
+3. Obtain permissions as shown on the initial screen: Settings → System → Language & Input → Virtual Keyboard → Manage Keyboards → Enable "Voice Input".
 
 ### Download Model:
 
@@ -92,15 +89,15 @@ Original Project's Introduction (English): [Open: English](https://github.com/Br
 
 2. Select your preferred speech recognition service provider, choose the model size, and click One-Click Download.
 
-- To download manually, Go to Settings - Voice Recognition Settings - to view the configuration tutorial, which will bring up the embedded offline configuration guide page. You can find the model download link there, or download and save it in [Release-ModelDownload]().
+- To download manually, go to Settings - Speech Recognition Settings - and view the configuration tutorial. This will bring up the embedded offline configuration guide page, where you can find the model download link, or download and save it in [Release-ModelDownload]().
 
 ### Usage~
 
-- Switch to the "Say Something" input method in any input box and long-press the microphone button to start recognition.
+- Switch to the SaySomething input method in any input box and long-press the microphone button to start recognition.
 
 ---
 
-## Differences between the original version, Branch 2, and this version (modified content):
+## Original Version, Branch 2 And the differences between this version (modified content):
 
 ### [Original Version](https://github.com/BryceWG/BiBi-Keyboard)
 
@@ -118,65 +115,65 @@ Original Project's Introduction (English): [Open: English](https://github.com/Br
 
 - **Added Traditional Chinese input**
 
-- **No (Check) Updates**
+**No (check) updates**
 
-- **Can coexist with the original version, but not with branch 1**
+**Can coexist with the original version, cannot coexist with Branch 1**
 
-### [Branch 1 (this branch)](https://github.com/qimuan7/SaySomething-Keyboard-Hant/)
+### [Branch 1 (This branch)](https://github.com/qimuan7/SaySomething-Keyboard-Hant/)
 
-- Compared to the original version, **except for retaining the model download function, all online functions have been removed** (WebDAV backup, anonymous data collection, clipboard synchronization, update and check for updates, Pro version promotion, ...)
+- Compared to the original version, **except for retaining the model download function, all online functions have been removed** (WebDAV backup, anonymous data collection, etc.) Clipboard sync, update and check for updates, Pro version promotion, ...)
 
-- **Hides all online AI service providers** (changes to using offline models by default, embeds the original online configuration tutorial document)
+- **Hide all online AI service providers** (Switch to using offline models by default, embed the original online configuration tutorial document)
 
-- Replace the original project name; **Chinese** is changed to **blank** or **"Voice Input"**; **English** is changed to **blank** or **"Speech Input"**
+- Replace the original project name; **Chinese** changed to **blank** or **"Voice Input"**; **English** changed to **blank** or **"Speech Input"**
 
-- **Adds Traditional Chinese input**
+- **Add Traditional Chinese input**
 
-- **Can coexist with the original version, but not with branch 2**
+- **Can coexist with the original version, cannot coexist with branch 2**
 
 ---
 
 ## Note:
 
-As the name suggests, this branch removes all online functions. The original name has been removed; it's a product of "obsessive personal habits" and may not be suitable for everyone.
+As the name suggests, this branch removes all online features and the original name. It's a product of "obsessive personal habits" and may not be suitable for everyone.
 
-I initially compiled this for my own use, hence the many strange and unnecessary changes.
+I initially compiled this for my own use, hence the many seemingly strange and unnecessary changes.
 
-Online functionality was removed because of my distrust of online access; I worried that all phone functions would be unusable when I was offline, so this is just a simple replacement.
+The removal of online features stems from my distrust of online systems and my concern that all phone functions would be unusable when offline. Therefore, this is simply a replacement.
 
-Removing the original project name wasn't an attempt to steal or start a new project; the word "BIBI" just haunted me, so I removed it from this branch.
+Removing the original project name is not intended to steal or create a separate project; it's just "BIBI". This word evoked negative feelings in me, so I removed it from this branch.
 
 If you want the original experience but lack Traditional Chinese input, you can try branch 2, which is purely the original version with Traditional Chinese output.
 
 ## Warning:
 
-99.9% of the changes in this project were written in Gemini AI Agent 3.1, and the author (me) is an ordinary human with almost no coding knowledge...
+99.9% of the changes in this project were written using Gemini AI Agent 3.1, and the author (me) is an ordinary human who knows almost nothing about coding...
 
-The remaining 0.1% consists of package names, version numbers, and permission codes that I manually changed to avoid being overwritten by the original version.
+The remaining 0.1% is package name, version number, and permission code that I manually changed to avoid being overwritten by the original version.
 
-So encountering problems is normal~~ although I don't know how to fix them either. (Fingers fingers)
+So encountering problems is normal~~ Although I don't know how to fix them either (fingers)
 
-***Please do not submit bug reports encountered while using this project to the original project's issus before confirming the source of the problem. This will cause significant inconvenience to both parties!!! Thank you very much!!!***
+***Please do not submit bug reports encountered while using this project to the original project issus before you have determined where the problem comes from. This will cause huge inconvenience to both of us!!! Thank you very much!!!***
 
-## Declaration of Origin:
+## Declaration of Belonging:
 
 **This project uses a modified version 4.1.2 of the voice input method github.com/BryceWG/BiBi-Keyboard.**
 
-**Uses the OpenCC library (S2T, S2HK, S2TWP) from github.com/qichuan/android-opencc to implement Traditional Chinese output.**
+**Usage This branch implements Traditional Chinese output in the OpenCC libraries (S2T, S2HK, S2TWP) on github.com/qichuan/android-opencc.
 
 To be honest, I haven't used the Pro version of the original project, and I don't know how the "Traditional Chinese output" is implemented.
 
-My goal is not to replace or decipher the Pro version of the original project (nor can I),
+My goal isn't to replace or decipher the Pro version of the original project (nor can I),
 
-but as a user accustomed to using Traditional Chinese characters, I hope that my favorite keyboard project can be used more conveniently in daily life without needing to convert the text.
+but as a user who frequently uses Traditional Chinese characters, I hope that my favorite keyboard project can be used more conveniently in daily life without needing to convert the text.
 
-Therefore, I created this branch, which happens to be in the feature list of the Pro version of the original project.
+So I created this branch, which just happens to be in the feature list of the Pro version of the original project.
 
-I also believe that the Pro version of the original project (perhaps), based on AI output, will have better performance than what I use. OpenCC forced conversion yields better output results.
+I also believe that the Pro version of the original project (perhaps), based on AI output, will have a better output effect than my forced conversion using OpenCC.
 
-If you like this input method, please give the original project some support and encouragement! (〃￣︶￣)人(￣︶￣〃) It's really sad that such a great project only has 706 stars.
+If you like this input method, please give the original project some support and encouragement (〃￣︶￣)人(￣︶￣〃). It's really sad that such a good project only has 706 stars.
 
 ---
-Wishing you a happy day! ouo. --qimuan7
+Wishing you a happy day. --qimuan7
 
 ---
