@@ -136,9 +136,9 @@ Original Project Introduction (English): [Open: English](https://github.com/Bryc
 
 3. Enter the API key
 
-### Get Started~
+### Start using it~
 
-1. 1. Switch to the "Say Something" input method in any input box
+1. Switch to the "Say Something" input method in any input box
 
 2. Long press the microphone button and then say something u want
 
