@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ASR履歴関連文字列 - ASR history related strings -->
+
+    <string name="btn_open_asr_history">履歴</string>
+
+    <!-- ASR History -->
+    <string name="title_asr_history">ASR履歴</string>
+    <string name="hint_search_history">テキストを検索…</string>
+    <string name="history_section_2h">2時間以内</string>
+    <string name="history_section_today">今日</string>
+    <string name="history_section_7d">過去7日間</string>
+    <string name="history_section_30d">過去30日間</string>
+    <string name="history_section_older">それ以前</string>
+    <string name="label_vendor">ベンダー</string>
+    <string name="label_source">ソース</string>
+    <string name="source_ime">キーボード</string>
+    <string name="source_floating">フローティング</string>
+    <string name="source_external">外部</string>
+    <string name="source_ime_full">キーボード入力</string>
+    <string name="source_floating_full">フローティング入力</string>
+    <string name="source_external_full">外部入力</string>
+    <string name="label_ai_processed">AI処理済み</string>
+    <string name="label_chars_count">テキスト：%1$d</string>
+    <string name="label_audio_duration_s">時間：%1$.1f秒</string>
+    <!-- 履歴リスト：総時間と処理時間（非ストリーミング） -->
+    <string name="meta_total_seconds">音声時長%1$.1f秒</string>
+    <string name="meta_total_elapsed_seconds">総所要%1$.1f秒</string>
+    <string name="meta_proc_seconds">認識時間%1$.1f秒</string>
+    <string name="meta_ai_postproc_seconds">後処理時間%1$.1f秒</string>
+    <string name="ai_processed_yes">後処理済み</string>
+    <string name="ai_processed_no">未処理</string>
+    <string name="ai_processed_failed">後処理失敗</string>
+    <string name="label_timestamp">時間</string>
+    <string name="label_time">時間範囲</string>
+    <string name="filter_time_all">すべて</string>
+    <string name="filter_all">すべて</string>
+    <string name="btn_copy">コピー</string>
+    <string name="toast_copied">コピーしました</string>
+    <string name="yes">はい</string>
+    <string name="no">いいえ</string>
+    <string name="menu_filter">フィルター</string>
+    <string name="menu_select_all">すべて選択</string>
+    <string name="menu_clear_selection">選択をクリア</string>
+    <string name="menu_delete_selected">選択項目を削除</string>
+    <string name="menu_api_log">API Log</string>
+    <string name="title_api_log">API Log</string>
+    <string name="hint_search_api_log">ベンダー、モデル、ホスト、パス、エラーを検索…</string>
+    <string name="api_log_filter_asr">ASR</string>
+    <string name="api_log_filter_llm">LLM</string>
+    <string name="api_log_filter_failed">失敗</string>
+    <string name="api_log_status_success">成功</string>
+    <string name="api_log_status_failed">失敗</string>
+    <string name="api_log_status_cancelled">キャンセル</string>
+    <string name="api_log_unknown">不明</string>
+    <string name="api_log_meta_format">%1$s · %2$dms · model %3$s</string>
+    <string name="api_log_local_endpoint_format">ローカル%1$s · %2$s</string>
+    <string name="api_log_local_action_infer">推論</string>
+    <string name="api_log_local_action_load">読み込み</string>
+    <string name="api_log_local_source_preload">事前読み込み</string>
+    <string name="api_log_local_source_file">非ストリーミング認識</string>
+    <string name="api_log_local_source_inference_load">初回推論時の読み込み</string>
+    <string name="api_log_local_source_pseudo_stream_final">疑似ストリーミング最終認識</string>
+    <string name="api_log_local_source_pseudo_stream_final_load">疑似ストリーミング最終読み込み</string>
+    <string name="api_log_local_source_pseudo_stream_preview_load">疑似ストリーミングプレビュー読み込み</string>
+    <string name="api_log_local_source_streaming_load">ストリーミングモデル読み込み</string>
+    <string name="api_log_local_source_streaming">ストリーミング認識</string>
+    <string name="api_log_local_source_external_pcm_stream">外部連携呼び出し</string>
+    <string name="api_log_request">リクエスト</string>
+    <string name="api_log_request_structure">構造</string>
+    <string name="api_log_response">レスポンス</string>
+    <string name="api_log_error">エラー</string>
+    <string name="menu_clear_api_log">API Logを消去</string>
+    <string name="dialog_clear_api_log_title">API Logを消去しますか？</string>
+    <string name="dialog_clear_api_log_message">ローカルのAPIリクエスト概要を削除します。APIキー、音声、全文は保存されません。</string>
+    <string name="toast_api_log_cleared">API Logを消去しました</string>
+    <string name="empty_api_log">API Logはまだありません</string>
+    <string name="empty_api_log_filtered">一致するAPI Logはありません</string>
+    <string name="dialog_filter_title">フィルター</string>
+    <string name="dialog_filter_ok">OK</string>
+    <string name="dialog_filter_cancel">キャンセル</string>
+    <string name="dialog_filter_reset">リセット</string>
+    <string name="dialog_delete_selected_title">削除の確認</string>
+    <string name="dialog_delete_selected_msg">%1$d個の選択項目を削除しますか？この操作は元に戻せません。</string>
+    <string name="toast_deleted">%1$d個のアイテムを削除しました</string>
+    <string name="empty_history">まだ履歴がありません</string>
+</resources>

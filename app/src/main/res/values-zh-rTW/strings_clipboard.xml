@@ -1,0 +1,43 @@
+<resources>
+    <!-- 剪貼簿同步相關字串 - Clipboard sync related strings -->
+
+    <!-- SyncClipboard settings -->
+    <string name="section_sync_clipboard">剪貼簿同步</string>
+    <string name="label_enable_sync_clipboard">使用 SyncClipboard 專案來同步剪貼簿</string>
+    <string name="label_sc_server_base">伺服器位址（會自動拼接 /SyncClipboard.json）</string>
+    <string name="label_sc_username">使用者名稱</string>
+    <string name="label_sc_password">密碼</string>
+    <string name="label_sc_auto_pull">自動定時拉取剪貼簿內容（僅在輸入法面板展開時）</string>
+    <string name="label_sc_pull_interval">拉取間隔（秒，1-600）</string>
+    <string name="btn_sc_test_pull">立即驗證</string>
+    <string name="sc_test_success">拉取成功</string>
+    <string name="sc_test_failed">拉取失敗，請檢查位址與憑證</string>
+    <string name="sc_status_uploaded">成功上傳剪貼簿</string>
+    <string name="sc_status_upload_failed">上傳剪貼簿失敗</string>
+    <string name="btn_sc_project_home">專案首頁</string>
+    <string name="sc_open_browser_failed">無法開啟瀏覽器</string>
+    <string name="hint_sc_server_base_placeholder">https://your-server.com/path</string>
+
+    <!-- Clipboard manager panel -->
+    <string name="ext_btn_clipboard">剪貼簿</string>
+    <string name="cd_clipboard_back">返回</string>
+    <string name="cd_clipboard_delete">刪除</string>
+    <string name="clip_count_format">%1$d 筆記錄</string>
+    <string name="clip_delete_title">刪除記錄（不刪除固定）</string>
+    <string name="clip_delete_before_1h">1 小時之前</string>
+    <string name="clip_delete_before_24h">24 小時之前</string>
+    <string name="clip_delete_before_7d">7 天之前</string>
+    <string name="clip_delete_all_non_pinned">全部非固定記錄</string>
+    <string name="clip_pinned">已固定</string>
+    <string name="clip_unpinned">已取消固定</string>
+    <string name="clip_deleted">已刪除</string>
+    <string name="clip_cannot_delete_pinned">該記錄已固定，請右滑取消固定</string>
+
+    <!-- 剪貼簿檔案同步 / 下載 -->
+    <string name="clip_file_download_success">檔案下載成功</string>
+    <string name="clip_file_download_failed">檔案下載失敗</string>
+    <string name="clip_file_download_error">檔案下載發生錯誤：%1$s</string>
+    <string name="clip_file_not_found">檔案不存在</string>
+    <string name="clip_file_open_chooser_title">開啟檔案</string>
+    <string name="clip_file_open_failed">無法開啟檔案：%1$s</string>
+</resources>
