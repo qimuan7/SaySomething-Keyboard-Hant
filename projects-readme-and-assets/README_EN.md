@@ -1,4 +1,4 @@
-# Say it ! - Speech Input Method
+# Say Something ! - Speech Input Method
 
 A smart voice input method powered by AI—using either online services or local models.
 
@@ -10,28 +10,31 @@ Now supports Traditional Chinese output for users who need it.
 
 English can also using smoothly  (〃￣︶￣)人(￣︶￣〃)
 
-* * *
+---
+
+**The "2" branch version only adds Traditional Chinese output compared to the original; all other functions are completely identical. Unless you have specific needs, we recommend using the [original-version](https://github.com/BryceWG/BiBi-Keyboard), or installing both?**
+
+**For a slimer version, please check the main branch: [Open](https://github.com/qimuan7/SaySomething-Keyboard-Hant)**
+
+---
 
 ## Multi-Language Introduction:
 
 Traditional Chinese: README.md
 
-Simplified Chinese:
+Simplified Chinese: [打开](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/README_ZH-Hans.md)
 
-English:
+English: U R READING NOWWWW ~
 
-Japanese:
+Japanese: [開ける](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/README_JA.md)
 
 
 
 ### Original Project Introduction:
 
-Original Project Introduction (Simplified Chinese):
+Original Project Introduction (Simplified Chinese): [打开: 简体中文](https://github.com/BryceWG/BiBi-Keyboard/blob/main/README.md)
 
-
-
-Original Project Introduction (English):
-
+Original Project Introduction (English): [Open: English](https://github.com/BryceWG/BiBi-Keyboard/blob/main/README_EN.md)
 
 
 * * *
@@ -90,7 +93,54 @@ Original Project Introduction (English):
 
 7. ~~Automatic Update Check - Automatically checks for new versions upon daily app launch~~ **(Due to changes in the package name and version number, it can coexist with the original version, but the in-app update function is disabled.)**
 
-### Interface Preview (Tablet):
+### Interface Preview (On Tablet):
+
+
+![設定1](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-1.png)
+
+![設定2](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-2.png)
+
+![設定3](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-3.png)
+
+![輸入佈局](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-4.png)
+
+---
+
+## Usage:
+
+### System Requirements:
+
+1. Android 8.0 (API 26) or higher
+
+2. Microphone permission (speech recognition)
+
+3. Floating window permission (optional, for floating ball function)
+
+4. Accessibility permission (optional, for automatic text insertion)
+
+### Installation Steps:
+
+1. Download the latest version APK from the [Releases](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases) page
+
+2. Install it on your Android device
+
+### Enable Input Method:
+
+> Settings → System → Language & Input → Virtual Keyboard → Manage Keyboards → Enable "SaySomething"
+
+### Configure ASR Service
+
+1. Open SaySomething settings
+
+2. Select an ASR provider (recommended: Volcano Engine)
+
+3. Enter the API key
+
+### Get Started~
+
+1. 1. Switch to the "Say Something" input method in any input box
+
+2. Long press the microphone button and then say something u want
 
 * * *
 
