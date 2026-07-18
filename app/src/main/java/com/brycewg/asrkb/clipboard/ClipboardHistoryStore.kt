@@ -1,0 +1,383 @@
+package com.brycewg.asrkb.clipboard
+
+import android.content.Context
+import android.util.Log
+import com.brycewg.asrkb.store.Prefs
+import java.util.UUID
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
+
+/**
+ * 剪贴板条目类型
+ */
+@Serializable
+enum class EntryType {
+    TEXT,
+    IMAGE,
+    FILE
+}
+
+/**
+ * 下载状态
+ */
+@Serializable
+enum class DownloadStatus {
+    NONE, // 未下载
+    DOWNLOADING, // 下载中
+    COMPLETED, // 已完成
+    FAILED // 失败
+}
+
+/**
+ * 简单的剪贴板历史存储：
+ * - 按时间倒序（最新在前）
+ * - 支持固定（置顶）与普通记录分开存储
+ * - 仅固定记录参与备份（存储于 KEY_CLIP_PINNED_JSON）
+ * - 普通记录存储于 KEY_CLIP_HISTORY_JSON，不参与备份
+ * - 支持文本和文件类型
+ */
+class ClipboardHistoryStore(private val context: Context, private val prefs: Prefs) {
+
+    @Serializable
+    data class Entry(
+        val id: String,
+        val text: String = "", // 文本内容（保持向后兼容）
+        val ts: Long,
+        val pinned: Boolean,
+        // 新增字段：支持文件类型
+        val type: EntryType = EntryType.TEXT,
+        val fileName: String? = null, // 文件名
+        val fileSize: Long? = null, // 文件大小（字节）
+        val mimeType: String? = null, // MIME 类型
+        val localFilePath: String? = null, // 本地文件路径
+        val downloadStatus: DownloadStatus = DownloadStatus.NONE,
+        // 服务器上的文件名（用于下载）
+        val serverFileName: String? = null
+    ) {
+        /**
+         * 用于列表 / 信息栏展示的文本。
+         * 文本条目直接返回 text；文件条目返回「EXT-名称」形式，例如：PNG-截图。
+         */
+        fun getDisplayLabel(): String {
+            if (type == EntryType.TEXT) return text
+            val rawName = fileName ?: serverFileName ?: text
+            if (rawName.isNullOrBlank()) return ""
+            val dotIndex = rawName.lastIndexOf('.')
+            val base = if (dotIndex > 0) rawName.substring(0, dotIndex) else rawName
+            val ext = if (dotIndex > 0 && dotIndex < rawName.length - 1) {
+                rawName.substring(dotIndex + 1).uppercase()
+            } else {
+                "FILE"
+            }
+            return "$ext-$base"
+        }
+    }
+
+    private val sp by lazy { context.getSharedPreferences("asr_prefs", Context.MODE_PRIVATE) }
+    private val json by lazy {
+        Json {
+            ignoreUnknownKeys = true
+            encodeDefaults = true
+        }
+    }
+
+    companion object {
+        private const val TAG = "ClipboardHistoryStore"
+        private const val MAX_HISTORY = 200
+        private const val MAX_PINNED = 200
+        internal const val MAX_STORED_TEXT_CHARS = 32 * 1024
+        private const val KEY_CLIP_HISTORY_JSON = "clip_history"
+        private const val KEY_CLIP_PINNED_JSON = "clip_pinned"
+        private val STORE_LOCK = Any()
+    }
+
+    private inline fun <T> withStoreLock(action: () -> T): T = synchronized(STORE_LOCK, action)
+
+    fun getAll(): List<Entry> = getPinned() + getHistory()
+
+    fun getPinned(): List<Entry> {
+        return try {
+            val s = sp.getString(KEY_CLIP_PINNED_JSON, null) ?: return emptyList()
+            json.decodeFromString<List<Entry>>(s).sortedByDescending { it.ts }.filter { it.pinned }
+        } catch (t: Throwable) {
+            Log.w(TAG, "parse pinned failed", t)
+            emptyList()
+        }
+    }
+
+    fun getHistory(): List<Entry> {
+        return try {
+            val s = sp.getString(KEY_CLIP_HISTORY_JSON, null) ?: return emptyList()
+            json.decodeFromString<List<Entry>>(s).sortedByDescending { it.ts }.filter { !it.pinned }
+        } catch (t: Throwable) {
+            Log.w(TAG, "parse history failed", t)
+            emptyList()
+        }
+    }
+
+    fun totalCount(): Int = getPinned().size + getHistory().size
+
+    /**
+     * 清除所有非固定文件 / 图片条目，仅保留文本条目。
+     * 用于保证「最新文件唯一」的历史记录语义。
+     */
+    fun clearFileEntries() = withStoreLock {
+        try {
+            val history = getHistory().toMutableList()
+            val filtered = history.filter { it.type == EntryType.TEXT }
+            sp.edit().putString(KEY_CLIP_HISTORY_JSON, json.encodeToString(filtered)).apply()
+        } catch (t: Throwable) {
+            Log.e(TAG, "clearFileEntries failed", t)
+        }
+    }
+
+    /**
+     * 将当前剪贴板文本追加到历史（作为非固定项）。
+     * 若与最新的一条非固定记录相同，则跳过。
+     */
+    fun addFromClipboard(text: String): Unit = withStoreLock {
+        val trimmed = normalizeClipboardHistoryText(text)
+        if (trimmed.isEmpty()) return
+        try {
+            val his = getHistory().toMutableList()
+            if (his.firstOrNull()?.text == trimmed) return
+            his.add(
+                0,
+                Entry(
+                    UUID.randomUUID().toString(),
+                    trimmed,
+                    System.currentTimeMillis(),
+                    pinned = false
+                )
+            )
+            while (his.size >
+                MAX_HISTORY
+            ) {
+                if (his.isNotEmpty()) his.removeAt(his.lastIndex) else break
+            }
+            sp.edit().putString(KEY_CLIP_HISTORY_JSON, json.encodeToString(his)).apply()
+        } catch (t: Throwable) {
+            Log.e(TAG, "addFromClipboard failed", t)
+        }
+    }
+
+    /**
+     * 切换固定状态（根据 id）。返回新的固定状态。
+     * 若该条在历史中，则移入/移出固定集合；保持两个集合各自有序（按时间倒序）。
+     */
+    fun togglePin(id: String): Boolean = withStoreLock {
+        val pinned = getPinned().toMutableList()
+        val history = getHistory().toMutableList()
+        // 先在历史里找
+        val idxH = history.indexOfFirst { it.id == id }
+        if (idxH >= 0) {
+            val e = history.removeAt(idxH)
+            val pe = e.copy(pinned = true, ts = System.currentTimeMillis())
+            pinned.add(0, pe)
+            while (pinned.size >
+                MAX_PINNED
+            ) {
+                if (pinned.isNotEmpty()) pinned.removeAt(pinned.lastIndex) else break
+            }
+            persist(pinned, history)
+            return true
+        }
+        // 再在固定里找 -> 取消固定
+        val idxP = pinned.indexOfFirst { it.id == id }
+        if (idxP >= 0) {
+            val e = pinned.removeAt(idxP)
+            val he = e.copy(pinned = false, ts = System.currentTimeMillis())
+            history.add(0, he)
+            while (history.size >
+                MAX_HISTORY
+            ) {
+                if (history.isNotEmpty()) history.removeAt(history.lastIndex) else break
+            }
+            persist(pinned, history)
+            return false
+        }
+        return false
+    }
+
+    /** 删除指定时间之前的非固定记录（不影响固定）。返回删除数量。 */
+    fun deleteHistoryBefore(cutoffEpochMs: Long): Int = withStoreLock {
+        val history = getHistory().toMutableList()
+        val beforeSize = history.size
+        val remain = history.filter { it.ts >= cutoffEpochMs }
+        sp.edit().putString(KEY_CLIP_HISTORY_JSON, json.encodeToString(remain)).apply()
+        return beforeSize - remain.size
+    }
+
+    /** 清空所有非固定记录 */
+    fun clearAllNonPinned(): Int = withStoreLock {
+        val sz = getHistory().size
+        sp.edit().remove(KEY_CLIP_HISTORY_JSON).apply()
+        return sz
+    }
+
+    /** 清空本应用保存的全部剪贴板记录（含置顶），不修改系统当前剪贴板。 */
+    fun clearAll() = withStoreLock {
+        sp.edit()
+            .remove(KEY_CLIP_HISTORY_JSON)
+            .remove(KEY_CLIP_PINNED_JSON)
+            .apply()
+    }
+
+    private fun persist(pinned: List<Entry>, history: List<Entry>) {
+        try {
+            sp.edit()
+                .putString(
+                    KEY_CLIP_PINNED_JSON,
+                    json.encodeToString(
+                        pinned.sortedByDescending {
+                            it.ts
+                        }
+                    )
+                )
+                .putString(
+                    KEY_CLIP_HISTORY_JSON,
+                    json.encodeToString(
+                        history.sortedByDescending {
+                            it.ts
+                        }
+                    )
+                )
+                .apply()
+        } catch (t: Throwable) {
+            Log.e(TAG, "persist failed", t)
+        }
+    }
+
+    /** 从非固定历史中删除指定ID的记录 */
+    fun deleteHistoryById(id: String): Boolean = withStoreLock {
+        try {
+            val history = getHistory().toMutableList()
+            val idx = history.indexOfFirst { it.id == id }
+            if (idx >= 0) {
+                history.removeAt(idx)
+                sp.edit().putString(KEY_CLIP_HISTORY_JSON, json.encodeToString(history)).apply()
+                true
+            } else {
+                false
+            }
+        } catch (t: Throwable) {
+            Log.e(TAG, "deleteHistoryById failed", t)
+            false
+        }
+    }
+
+    /**
+     * 粘贴到目标输入框
+     */
+    fun pasteInto(ic: android.view.inputmethod.InputConnection?, text: String) {
+        if (ic == null) return
+        try {
+            ic.commitText(text, 1)
+        } catch (e: Throwable) {
+            Log.e(TAG, "commitText failed", e)
+        }
+    }
+
+    /**
+     * 添加文件条目到历史
+     * @param type 文件类型（IMAGE 或 FILE）
+     * @param fileName 显示的文件名
+     * @param serverFileName 服务器上的文件名（用于下载）
+     * @param fileSize 文件大小
+     * @param mimeType MIME 类型
+     * @param localFilePath 本地文件路径
+     * @param downloadStatus 下载状态
+     * @return 是否添加成功（如果已存在相同文件则返回 false）
+     */
+    fun addFileEntry(
+        type: EntryType,
+        fileName: String,
+        serverFileName: String,
+        fileSize: Long? = null,
+        mimeType: String? = null,
+        localFilePath: String? = null,
+        downloadStatus: DownloadStatus = DownloadStatus.NONE
+    ): Boolean = withStoreLock {
+        try {
+            // 先清理旧的文件条目，保证「最多一个文件记录」
+            clearFileEntries()
+            val his = getHistory().toMutableList()
+
+            val entry = Entry(
+                id = UUID.randomUUID().toString(),
+                text = "",
+                ts = System.currentTimeMillis(),
+                pinned = false,
+                type = type,
+                fileName = fileName,
+                fileSize = fileSize,
+                mimeType = mimeType,
+                localFilePath = localFilePath,
+                downloadStatus = downloadStatus,
+                serverFileName = serverFileName
+            )
+
+            his.add(0, entry)
+            while (his.size >
+                MAX_HISTORY
+            ) {
+                if (his.isNotEmpty()) his.removeAt(his.lastIndex) else break
+            }
+            sp.edit().putString(KEY_CLIP_HISTORY_JSON, json.encodeToString(his)).apply()
+            return true
+        } catch (t: Throwable) {
+            Log.e(TAG, "addFileEntry failed", t)
+            return false
+        }
+    }
+
+    /**
+     * 更新文件条目的下载状态和本地路径
+     */
+    fun updateFileEntry(
+        id: String,
+        localFilePath: String?,
+        downloadStatus: DownloadStatus
+    ): Boolean = withStoreLock {
+        try {
+            val history = getHistory().toMutableList()
+            val idx = history.indexOfFirst { it.id == id }
+            if (idx >= 0) {
+                val old = history[idx]
+                history[idx] = old.copy(
+                    localFilePath = localFilePath ?: old.localFilePath,
+                    downloadStatus = downloadStatus
+                )
+                sp.edit().putString(KEY_CLIP_HISTORY_JSON, json.encodeToString(history)).apply()
+                return true
+            }
+
+            // 也检查固定列表
+            val pinned = getPinned().toMutableList()
+            val idxP = pinned.indexOfFirst { it.id == id }
+            if (idxP >= 0) {
+                val old = pinned[idxP]
+                pinned[idxP] = old.copy(
+                    localFilePath = localFilePath ?: old.localFilePath,
+                    downloadStatus = downloadStatus
+                )
+                sp.edit().putString(KEY_CLIP_PINNED_JSON, json.encodeToString(pinned)).apply()
+                return true
+            }
+
+            return false
+        } catch (t: Throwable) {
+            Log.e(TAG, "updateFileEntry failed", t)
+            return false
+        }
+    }
+
+    /**
+     * 根据 ID 获取条目
+     */
+    fun getEntryById(id: String): Entry? = getAll().firstOrNull { it.id == id }
+}
+
+internal fun normalizeClipboardHistoryText(text: String): String =
+    text.trim().take(ClipboardHistoryStore.MAX_STORED_TEXT_CHARS)

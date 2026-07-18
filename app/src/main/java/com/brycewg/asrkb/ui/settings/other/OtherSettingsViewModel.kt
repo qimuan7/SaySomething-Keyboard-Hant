@@ -1,0 +1,301 @@
+package com.brycewg.asrkb.ui.settings.other
+
+import android.util.Log
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.brycewg.asrkb.store.Prefs
+import com.brycewg.asrkb.store.SpeechPreset
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
+
+/**
+ * ViewModel for the Compose other settings screen that manages speech presets and sync clipboard settings.
+ * Uses StateFlow to drive reactive UI updates and eliminates manual UI refresh complexity.
+ */
+class OtherSettingsViewModel(private val prefs: Prefs) : ViewModel() {
+
+    companion object {
+        private const val TAG = "OtherSettingsViewModel"
+    }
+
+    // Speech presets state
+    private val _speechPresetsState = MutableStateFlow(buildSpeechPresetsStateSafely())
+    val speechPresetsState: StateFlow<SpeechPresetsState> = _speechPresetsState.asStateFlow()
+
+    // Sync clipboard state
+    private val _syncClipboardState = MutableStateFlow(buildSyncClipboardStateSafely())
+    val syncClipboardState: StateFlow<SyncClipboardState> = _syncClipboardState.asStateFlow()
+    private var speechPresetPersistJob: Job? = null
+
+    data class SpeechPresetsState(
+        val presets: List<SpeechPreset> = emptyList(),
+        val activePresetId: String = "",
+        val currentPreset: SpeechPreset? = null,
+        val isEnabled: Boolean = false
+    )
+
+    data class SyncClipboardState(
+        val enabled: Boolean = false,
+        val serverBase: String = "",
+        val username: String = "",
+        val password: String = "",
+        val autoPullEnabled: Boolean = false,
+        val pullIntervalSec: Int = 15
+    )
+
+    // Speech Presets Management
+
+    private fun loadSpeechPresets() {
+        viewModelScope.launch {
+            try {
+                _speechPresetsState.value = buildSpeechPresetsState()
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to load speech presets", e)
+            }
+        }
+    }
+
+    private fun buildSpeechPresetsState(): SpeechPresetsState {
+        val presets = prefs.getSpeechPresets()
+        val activeId = prefs.activeSpeechPresetId
+        val current = if (presets.isNotEmpty()) {
+            presets.firstOrNull { it.id == activeId } ?: presets.firstOrNull()
+        } else {
+            null
+        }
+
+        if (current != null && prefs.activeSpeechPresetId != current.id) {
+            prefs.activeSpeechPresetId = current.id
+        }
+
+        return SpeechPresetsState(
+            presets = presets,
+            activePresetId = current?.id ?: "",
+            currentPreset = current,
+            isEnabled = presets.isNotEmpty()
+        )
+    }
+
+    private fun buildSpeechPresetsStateSafely(): SpeechPresetsState = try {
+        buildSpeechPresetsState()
+    } catch (e: Exception) {
+        Log.e(TAG, "Failed to build speech presets state", e)
+        SpeechPresetsState()
+    }
+
+    fun addSpeechPreset(defaultName: String) {
+        viewModelScope.launch {
+            try {
+                flushPendingSpeechPreset()
+                val list = prefs.getSpeechPresets().toMutableList()
+                val newId = java.util.UUID.randomUUID().toString()
+                list.add(SpeechPreset(newId, defaultName, ""))
+                prefs.setSpeechPresets(list)
+                prefs.activeSpeechPresetId = newId
+                loadSpeechPresets()
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to add speech preset", e)
+            }
+        }
+    }
+
+    fun deleteSpeechPreset(presetId: String) {
+        viewModelScope.launch {
+            try {
+                flushPendingSpeechPreset()
+                val list = prefs.getSpeechPresets().toMutableList()
+                val idx = list.indexOfFirst { it.id == presetId }
+                if (idx >= 0) {
+                    list.removeAt(idx)
+                    prefs.setSpeechPresets(list)
+                    if (list.isNotEmpty()) {
+                        val nextIdx = idx.coerceAtMost(list.lastIndex)
+                        prefs.activeSpeechPresetId = list[nextIdx].id
+                    } else {
+                        prefs.activeSpeechPresetId = ""
+                    }
+                    loadSpeechPresets()
+                }
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to delete speech preset", e)
+            }
+        }
+    }
+
+    fun updateActivePresetName(name: String) {
+        try {
+            updateActiveSpeechPresetState { it.copy(name = name) }
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to update preset name", e)
+        }
+    }
+
+    fun updateActivePresetContent(content: String) {
+        try {
+            updateActiveSpeechPresetState { it.copy(content = content) }
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to update preset content", e)
+        }
+    }
+
+    fun setActivePreset(presetId: String) {
+        viewModelScope.launch {
+            try {
+                flushPendingSpeechPreset()
+                prefs.activeSpeechPresetId = presetId
+                loadSpeechPresets()
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to set active preset", e)
+            }
+        }
+    }
+
+    // Sync Clipboard Management
+
+    private fun loadSyncClipboardSettings() {
+        viewModelScope.launch {
+            try {
+                _syncClipboardState.value = buildSyncClipboardState()
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to load sync clipboard settings", e)
+            }
+        }
+    }
+
+    private fun updateActiveSpeechPresetState(mutator: (SpeechPreset) -> SpeechPreset) {
+        val state = _speechPresetsState.value
+        val activeId = state.activePresetId.ifBlank { prefs.activeSpeechPresetId }
+        val list = state.presets.toMutableList()
+        val idx = list.indexOfFirst { it.id == activeId }
+        if (idx < 0) return
+
+        val mutated = mutator(list[idx])
+        if (mutated == list[idx]) return
+
+        list[idx] = mutated
+        _speechPresetsState.value = state.copy(
+            presets = list,
+            activePresetId = activeId,
+            currentPreset = mutated,
+            isEnabled = list.isNotEmpty()
+        )
+
+        if (mutated.name.isNotBlank()) {
+            scheduleSpeechPresetPersist(list)
+        } else {
+            speechPresetPersistJob?.cancel()
+        }
+    }
+
+    private fun scheduleSpeechPresetPersist(list: List<SpeechPreset>) {
+        speechPresetPersistJob?.cancel()
+        speechPresetPersistJob = viewModelScope.launch {
+            delay(350L)
+            prefs.setSpeechPresets(list)
+            speechPresetPersistJob = null
+        }
+    }
+
+    private fun flushPendingSpeechPreset() {
+        speechPresetPersistJob?.cancel()
+        speechPresetPersistJob = null
+        val state = _speechPresetsState.value
+        if (state.currentPreset?.name?.isNotBlank() == true) {
+            prefs.setSpeechPresets(state.presets)
+        }
+    }
+
+    private fun buildSyncClipboardState(): SyncClipboardState = SyncClipboardState(
+        enabled = prefs.syncClipboardEnabled,
+        serverBase = prefs.syncClipboardServerBase,
+        username = prefs.syncClipboardUsername,
+        password = prefs.syncClipboardPassword,
+        autoPullEnabled = prefs.syncClipboardAutoPullEnabled,
+        pullIntervalSec = prefs.syncClipboardPullIntervalSec
+    )
+
+    private fun buildSyncClipboardStateSafely(): SyncClipboardState = try {
+        buildSyncClipboardState()
+    } catch (e: Exception) {
+        Log.e(TAG, "Failed to build sync clipboard state", e)
+        SyncClipboardState()
+    }
+
+    fun updateSyncClipboardEnabled(enabled: Boolean) {
+        viewModelScope.launch {
+            try {
+                prefs.syncClipboardEnabled = enabled
+                _syncClipboardState.value = _syncClipboardState.value.copy(enabled = enabled)
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to update sync clipboard enabled", e)
+            }
+        }
+    }
+
+    fun updateSyncClipboardServerBase(serverBase: String) {
+        viewModelScope.launch {
+            try {
+                prefs.syncClipboardServerBase = serverBase
+                _syncClipboardState.value = _syncClipboardState.value.copy(serverBase = serverBase)
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to update sync clipboard server base", e)
+            }
+        }
+    }
+
+    fun updateSyncClipboardUsername(username: String) {
+        viewModelScope.launch {
+            try {
+                prefs.syncClipboardUsername = username
+                _syncClipboardState.value = _syncClipboardState.value.copy(username = username)
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to update sync clipboard username", e)
+            }
+        }
+    }
+
+    fun updateSyncClipboardPassword(password: String) {
+        viewModelScope.launch {
+            try {
+                prefs.syncClipboardPassword = password
+                _syncClipboardState.value = _syncClipboardState.value.copy(password = password)
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to update sync clipboard password", e)
+            }
+        }
+    }
+
+    fun updateSyncClipboardAutoPullEnabled(enabled: Boolean) {
+        viewModelScope.launch {
+            try {
+                prefs.syncClipboardAutoPullEnabled = enabled
+                _syncClipboardState.value =
+                    _syncClipboardState.value.copy(autoPullEnabled = enabled)
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to update sync clipboard auto pull enabled", e)
+            }
+        }
+    }
+
+    fun updateSyncClipboardPullIntervalSec(intervalSec: Int) {
+        viewModelScope.launch {
+            try {
+                val coerced = intervalSec.coerceIn(1, 600)
+                prefs.syncClipboardPullIntervalSec = coerced
+                _syncClipboardState.value =
+                    _syncClipboardState.value.copy(pullIntervalSec = coerced)
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to update sync clipboard pull interval", e)
+            }
+        }
+    }
+
+    override fun onCleared() {
+        flushPendingSpeechPreset()
+        super.onCleared()
+    }
+}

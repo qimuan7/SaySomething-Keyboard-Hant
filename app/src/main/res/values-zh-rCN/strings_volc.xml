@@ -1,0 +1,66 @@
+<resources>
+    <!-- Volcengine (Volcano Engine) ASR 配置字符串 -->
+    <string name="volc_section_title">Volcano Engine API设置</string>
+    <string name="vendor_volc">豆包语音</string>
+
+    <!-- Volc configuration -->
+    <string name="label_volc_streaming">流式识别</string>
+    <string name="label_volc_file_standard">使用文件识别普通版</string>
+    <string name="label_volc_model_v2">使用豆包语音识别 2.0 模型</string>
+    <string name="label_volc_ddc">启用语义顺滑（实验性）</string>
+    <string name="label_volc_vad">启用 VAD 分句（实验性）</string>
+    <string name="label_volc_nonstream">启用二遍识别（实验性）</string>
+    <string name="label_volc_language">识别语言</string>
+    <string name="label_volc_use_new_auth">使用新版鉴权方式</string>
+    <string name="label_volc_api_key">X-Api-Key</string>
+
+    <!-- Volc modes hint -->
+    <string name="volc_modes_hint">模式说明：\n
+1. 文件识别（普通版，提交/查询）：录完再上传，比极速版更慢，但支持豆包语音识别2.0版本，在流式关闭时建议使用。\n
+2. 文件识别（极速版）：录完再上传，速度更快但不支持豆包语音识别2.0版本。\n
+3. 流式识别（默认，双向流式）：边录边传并实时返回增量预览，起始与结束时延更低，需要稳定网络。已支持豆包语音识别2.0。</string>
+
+    <!-- Volc language options -->
+    <string name="volc_lang_auto">自动（中英文与方言）</string>
+    <string name="volc_lang_en_us">英语 (en-US)</string>
+    <string name="volc_lang_ja_jp">日语 (ja-JP)</string>
+    <string name="volc_lang_id_id">印尼语 (id-ID)</string>
+    <string name="volc_lang_es_mx">西班牙语 (es-MX)</string>
+    <string name="volc_lang_pt_br">葡萄牙语 (pt-BR)</string>
+    <string name="volc_lang_de_de">德语 (de-DE)</string>
+    <string name="volc_lang_fr_fr">法语 (fr-FR)</string>
+    <string name="volc_lang_ko_kr">韩语 (ko-KR)</string>
+    <string name="volc_lang_fil_ph">菲律宾语 (fil-PH)</string>
+    <string name="volc_lang_ms_my">马来语 (ms-MY)</string>
+    <string name="volc_lang_th_th">泰语 (th-TH)</string>
+    <string name="volc_lang_ar_sa">阿拉伯语 (ar-SA)</string>
+
+    <!-- ============================================== -->
+    <!-- 火山引擎 ASR - 功能说明 -->
+    <!-- Feature Explanations for Volcengine ASR -->
+    <!-- ============================================== -->
+
+    <!-- 流式识别 - Streaming recognition -->
+    <string name="feature_volc_streaming_off_desc">使用文件识别模式。录音完成后一次发送整段录音进行处理，适合网络不稳定的场景。</string>
+    <string name="feature_volc_streaming_on_desc">使用 WebSocket 双向流式识别。说话时实时显示中间结果，响应更快。需要稳定的网络连接。</string>
+
+    <!-- 语义顺滑 - Semantic smoothing -->
+    <string name="feature_volc_ddc_off_desc">输出原始识别结果，不做额外处理。</string>
+    <string name="feature_volc_ddc_on_desc">启用语义顺滑，自动优化识别结果的表达和格式。实验性功能。</string>
+
+    <!-- VAD 分句 - VAD sentence segmentation -->
+    <string name="feature_volc_vad_off_desc">整段录音会连续识别，不根据说话和停顿自动分段。</string>
+    <string name="feature_volc_vad_on_desc">会根据说话和停顿自动分段，长录音可能更容易阅读；实际效果取决于音频和服务端。</string>
+
+    <!-- 二遍识别 - Non-streaming optimization -->
+    <string name="feature_volc_nonstream_off_desc">只使用流式识别的第一遍结果，文字返回更直接，但不会再进行二次修正。</string>
+    <string name="feature_volc_nonstream_on_desc">服务端会对流式识别结果再进行一次修正，最终文字可能更准确，但中间结果可能发生变化。</string>
+
+  <!-- 文件识别普通版 - File recognition (standard mode) -->
+    <string name="feature_volc_file_standard_off_desc">录音完成后使用文件识别（极速版）。速度更快，但不支持豆包语音识别2.0版本。</string>
+    <string name="feature_volc_file_standard_on_desc">录音完成后使用文件识别（普通版，提交/查询）。相比极速版更慢，但支持豆包语音识别2.0版本，准确度更好。</string>
+
+    <!-- 模型版本 - Model version -->
+    <string name="feature_volc_model_v2_off_desc">使用豆包语音识别 1.0 模型。兼容早期 API 版本。</string>
+    <string name="feature_volc_model_v2_on_desc">使用豆包语音识别 2.0 模型（默认）。识别准确度更好，支持更多语言。</string>
+</resources>
