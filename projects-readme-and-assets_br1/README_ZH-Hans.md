@@ -80,7 +80,7 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 
 ### 安装 & 启用:
 
-1. 从 [Releases](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases) 页面下载 "Spime_**BR1**_vXXX(XXX).apk" 版本 APK
+1. 从 [Releases-Apps & SourceCodes Download](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases/tag/2.apps%26source-codes) 页面下载 "Spime_**BR1**_vXXX(XXX).apk" 版本 APK
 
 2. 安装到 Android 设备
 
@@ -92,7 +92,7 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
 
 2. 选择喜欢的语音辨识服务商, 选择模型大小并点击一键下载
 
-- 若想要手动下载, 前往设定-语音辨识设定-去查看配置教学, 即可唤起内嵌的离线配置指导页面, 你可以在其中找到模型下载连结, 或在 [Release-ModelDownload]() 中下载保存
+- 若想要手动下载, 前往设定-语音辨识设定-去查看配置教学, 即可唤起内嵌的离线配置指导页面, 你可以在其中找到模型下载连结, 或在 [Release-Models Download](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases/tag/1.model) 中下载保存
 
 ### 使用~
 
