@@ -22,7 +22,7 @@
 
 英文 : [Open](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/README_EN.md)
 
-日文 : [開ける](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/README_JA.md)
+日文 : [开ける](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/README_JA.md)
 
 ---
 
@@ -101,54 +101,54 @@
 
 ### 界面展示(平板端):
 
-![設定1](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-1.png)
+![设定1](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-1.png)
 
-![設定2](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-2.png)
+![设定2](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-2.png)
 
-![設定3](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-3.png)
+![设定3](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-3.png)
 
-![輸入佈局](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-4.png)
+![输入布局](https://github.com/qimuan7/SaySomething-Keyboard-Hant/blob/2/projects-readme-and-assets/assets/hant-4.png)
 
 * * *
 
 ## 使用:
 
-### 系統需求:
+### 系统需求:
 
 1. Android 8.0 (API 26) 或更高版本
-  
-2. 麥克風權限（語音辨識）
-  
-3. 懸浮窗權限（可選，用於懸浮球功能）
-  
-4. 無障礙權限（可選，用於自動插入文字）
-  
 
-### 安裝步驟:
-  
-1. 從 [Releases](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases) 頁面下載最新版本 APK
-  
-2. 安裝到 Android 設備
-  
+2. 麦克风权限（语音辨识）
 
-### 啟用輸入法:
+3. 悬浮窗权限（可选，用于悬浮球功能）
 
-> 設定 → 系統 → 語言與輸入法 → 虛擬鍵盤 → 管理鍵盤 → 啟用"「說點啥」"
+4. 无障碍权限（可选，用于自动插入文字）
 
-### 配置 ASR 服務
 
-1. 打開說點啥設置
-  
-2. 選擇 ASR 供應商（建議：火山引擎）
-  
-3. 填入 API 金鑰
-  
+### 安装步骤:
 
-### 開始使用~
+1. 从 [Releases](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases) 页面下载 "Spime_BR2_vXXX(XXX).apk" 版本
 
-1. 在任意輸入框切換說點啥輸入法
-  
-2. 長按麥克風按鈕然後說點啥 (說啥我也不知道xd)
+2. 安装到 Android 设备
+
+
+### 启用输入法:
+
+> 设定 → 系统 → 语言与输入法 → 虚拟键盘 → 管理键盘 → 启用"「说点啥」"
+
+### 配置 ASR 服务
+
+1. 打开说点啥设置
+
+2. 选择 ASR 供应商（建议：火山引擎）
+
+3. 填入 API 金钥
+
+
+### 开始使用~
+
+1. 在任意输入框切换说点啥输入法
+
+2. 长按麦克风按钮然后说点啥 (说啥我也不知道xd)
 
 ---
 
