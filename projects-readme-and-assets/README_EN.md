@@ -130,7 +130,7 @@ Original Project Introduction (English): [Open: English](https://github.com/Bryc
 
 ### Installation Steps:
 
-1. Download the latest version APK from the [Releases](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases) page
+1. Download the "Spime_BR2_vXXX(XXX).apk" version from the [Releases](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases) page.
 
 2. Install it on your Android device
 
