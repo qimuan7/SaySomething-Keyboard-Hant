@@ -92,7 +92,7 @@ Original Project's Introduction (English) : [Open: English](https://github.com/B
   
 2. 選擇喜歡的語音辨識服務商, 選擇模型大小並點擊一鍵下載
   
-- 若想要手動下載, 前往設定-語音辨識設定-去查看配置教學, 即可喚起內嵌的離線配置指導頁面, 你可以在其中找到模型下載連結, 或在 [Release-ModelDownload]() 中下載保存
+- 若想要手動下載, 前往設定-語音辨識設定-去查看配置教學, 即可喚起內嵌的離線配置指導頁面, 你可以在其中找到模型下載連結, 或在 [Release-Models Download](https://github.com/qimuan7/SaySomething-Keyboard-Hant/releases/tag/1.model) 中下載保存
   
 ### 使用~
 
